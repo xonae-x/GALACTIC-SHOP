@@ -1,59 +1,82 @@
+/* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: white;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
+    background-color: #121212;
+    color: #fff;
 }
 
 header {
-    background-color: #1f1f1f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
+    background: #1e1e1e;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
-    margin: 0;
+    font-weight: 600;
+    font-size: 24px;
 }
 
-input, select {
+#search {
     padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
+    width: 250px;
     border: none;
-}
-
-main {
-    padding: 20px;
+    border-radius: 5px;
 }
 
 section {
-    margin-bottom: 30px;
-}
-
-#account-list, #featured-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.account-item {
-    background-color: #1f1f1f;
+h2 {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+#accounts, #featured-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.account-card {
+    background: #222;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-.buy-button {
-    background-color: #ff9800;
-    color: white;
+.account-card:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background: #ff5722;
+    color: #fff;
+    padding: 10px;
     border: none;
-    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.buy-button:hover {
-    background-color: #e68900;
+button:hover {
+    background: #e64a19;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #1e1e1e;
+    margin-top: 40px;
 }
