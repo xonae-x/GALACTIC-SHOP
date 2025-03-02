@@ -5,27 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galactic | Shop</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Galactic | Shop</h1>
         <input type="text" id="search" placeholder="Search accounts...">
-        <select id="filter">
-            <option value="all">All</option>
-            <option value="in-stock">In Stock</option>
-            <option value="out-of-stock">Out of Stock</option>
-        </select>
+        <button id="contact-btn">Contact</button>
     </header>
-    <main>
-        <section id="featured">
-            <h2>Featured Accounts</h2>
-            <div id="featured-list"></div>
-        </section>
-        <section id="store">
-            <h2>Available Accounts</h2>
-            <div id="account-list"></div>
-        </section>
-    </main>
-    <script src="script.js"></script>
+    
+    <section id="featured">
+        <h2>Featured Accounts</h2>
+        <div id="featured-list"></div>
+    </section>
+    
+    <section id="account-list">
+        <h2>Available Accounts</h2>
+        <div id="accounts"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Galactic | Shop. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        document.getElementById("contact-btn").addEventListener("click", function() {
+            alert("Join the discord server and open a ticket\n\nInvite: invite_link");
+        });
+    </script>
+    <script>
+        const accounts = [
+            { id: 1, title: "Blox Fruits Account Tier 4", description: "Level 2600 | All Fighting Styles, Race v4", stock: 0, price: "$19.99" },
+            { id: 2, title: "Blox Fruits Account Tier 3", description: "Level 2000 | Mythical Fruit", stock: 0, price: "$14.99" },
+            { id: 3, title: "Blox Fruits Account Tier 2", description: "Level 1500 | 2 Legendary Fruits", stock: 0, price: "$9.99" },
+            { id: 4, title: "Blox Fruits Account Tier 1", description: "Level 1000 | 1 Legendary Fruit", stock: 1, price: "$1.99" }
+        ];
+
+        function displayAccounts() {
+            const container = document.getElementById("accounts");
+            container.innerHTML = "";
+
+            accounts.forEach(account => {
+                const card = document.createElement("div");
+                card.classList.add("account-card");
+                card.innerHTML = `
+                    <h3>${account.title}</h3>
+                    <p>${account.description}</p>
+                    <p><strong>Stock:</strong> ${account.stock}</p>
+                    <p><strong>Price:</strong> ${account.price}</p>
+                    <button ${account.stock === 0 ? "disabled" : ""} onclick="buyAccount('${account.title}', '${account.price}')">
+                        ${account.stock === 0 ? "Out of Stock" : "Buy"}
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function buyAccount(accountTitle, accountPrice) {
+            const email = prompt(`PLEASE ENTER YOUR EMAIL (TO SEND ACCOUNT INFORMATION)\n\nPay here: invite_link`);
+            if (email) {
+                alert(`Thank you! Your purchase request for "${accountTitle}" has been sent.\nWe will contact you at ${email}.`);
+            }
+        }
+
+        window.onload = displayAccounts;
+    </script>
 </body>
 </html>
